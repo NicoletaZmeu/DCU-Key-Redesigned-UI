@@ -1,65 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+
+}
 
 nav {
     background-color: white;
     width: 100%;
     padding: 20px 45px;
-    box-sizing: border-box;
-}
-
-.logo {
-    width: 120px;
-    height: auto;
-}
-
-.secondary {
-    color: #7f7f7f;
-        font-size: 22px;
-
-}
-
-.top-nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
 }
 
-.divider-1 {
+.one{
     display: flex;
+    gap: 35px;
     align-items: center;
-    gap: 45px;
 }
 
-.divider-1 p {
-    margin: 5px 0;
+.logo{
+    width: 90px;
 }
 
-.divider-1 p:last-child {
-    color: #003b49;
-    font-size: 34px;
-    font-weight: bold;
-}
-
-.divider-2 ul {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 80px;
-    list-style: none;
+.title-one{
+    color: #909090;
+    font-weight: 600;
     margin: 0;
-    padding: 0;
-}
-
-.divider-2 a {
-    text-decoration: none;
-    color: #7f7f7f;
-}
-
-.divider-2 a:hover {
-    color: #003b49;
 }
 
 
-body {
+.title-two{
+    font-weight: 800;
+    font-size: 25px;
+    color: #003B4D;
     margin: 0;
-    background-color: #f5f6f8;
+}
+
+.course{
+    width: 400px;
+    height: 50px;
+}
+
+.two option {
+    color: #003B4D;
+    font-weight: 00;
 }
