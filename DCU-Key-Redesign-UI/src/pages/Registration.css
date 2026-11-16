@@ -1,0 +1,55 @@
+.top{
+    padding: 40px 50px;
+}
+
+.title {
+    color: #003B4D;
+    font-size: 45px;
+}
+
+.text{
+    color: #909090;
+    font-weight: 400;
+    font-size: 20px;
+    padding:10px 10px 10px 0px;
+}
+
+.progress{
+    display: flex;
+    gap: 60px;
+    padding: 20px 20px;
+}
+
+
+.optional{
+    background-color: white;
+    padding: 20px;
+    margin: 20px 40px;
+    height: 400px;
+    border-radius: 10px;
+}
+
+.final{
+    background-color: white;
+    padding: 20px;
+    margin: 20px 40px;
+    height: 400px;
+    border-radius: 10px;
+}
+
+.module-header{
+    display: grid;
+    grid-template-columns: 40% 10% 20%;
+    background-color: #f5f5f5;
+    padding: 15px 20px;
+}
+
+.semester-one{
+    font-size: 30px;
+    color: #003B4D;
+    font-weight: 700;
+}
+
+.row{
+    display: grid;
+}
