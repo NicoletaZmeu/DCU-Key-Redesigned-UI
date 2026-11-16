@@ -14,9 +14,15 @@ nav {
     padding: 10px 70px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     flex-wrap: wrap;
+    gap: 150px;
 
+}
+
+.start{
+    display: flex;
+    gap: 150px;
+    align-items: center;
 }
 
 .one{
