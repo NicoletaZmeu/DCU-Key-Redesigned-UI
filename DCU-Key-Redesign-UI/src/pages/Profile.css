@@ -1,0 +1,14 @@
+.profile{
+    background-color: white;
+    padding: 20px;
+    margin: 0px 40px;
+    height: auto;
+    border-radius: 10px;
+    border: #e1dfdf solid 2px;
+}
+
+
+.picture{
+    max-height: 400px;
+    border-radius: 10px;
+}
