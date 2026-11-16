@@ -1,46 +1,18 @@
 import './Results.css'
-
-const results = [
-    {
-        code: "CSC1031",
-        name: "Computer Programming 4",
-        mark: 85,
-        result: "Passed"
-    },
-    {
-        code: "CSC1020",
-        name: "Systems Analysis",
-        mark: 78,
-        result: "Passed"
-    },
-    {
-        code: "CSC1018",
-        name: "Logic",
-        mark: 72,
-        result: "Passed"
-    },
-    {
-        code: "CSC1040",
-        name: "Full Stack Development",
-        mark: 68,
-        result: "Passed"
-    },
-    {
-        code: "CSC1028",
-        name: "Probability & Statistics",
-        mark: 73,
-        result: "Passed"
-    },
-    {
-        code: "CSC1037",
-        name: "Introduction to DevOps",
-        mark: 38,
-        result: "Needs attention"
-    }
-];
+import {useParams, useSearchParams} from 'react-router-dom'
+import { results } from '../Results.js';
 
 
-function Results(){
+function Results({selectedCourse}){
+
+    const {year, semester} = useParams();
+
+    const selectedResults = results.find(
+        (item) =>
+            item.year === Number(year) &&
+            item.semester === Number(semester)
+    );
+
     return(
         <>
             <div className='top'>
@@ -56,36 +28,30 @@ function Results(){
                     <span>RESULT</span>
                 </div>
 
-                {results.map((module) => (
-                    <div className="result-row" key={module.code}>
-                        <span>{module.code}</span>
-                        <span>{module.name}</span>
-                        <span>{module.mark}%</span>
+                {selectedResults && selectedCourse && (
+                    <>
+                        {selectedResults.modules.map((module) => (
+                            <div className="result-row" key={module.code} style={{backgroundColor: module.mark < 40 ? '#ffebea' : ''}}>
+                                <span style={{fontWeight:400}}>{module.code}</span>
+                                <span>{module.name}</span>
+                                <span>{module.mark}%</span>
+                                <div className="progress-bar">
+                                    <div
+                                        className="progress-fill"
+                                        style={{
+                                            width: `${module.mark}%`,
+                                            backgroundColor: module.mark >= 40 ? '#287448' : '#B03A3A'
+                                        }}
+                                    />
+                                    </div>
 
-                        <div className="progress-bar">
-                            <div
-                                className="progress-fill"
-                                style={{
-                                    width: `${module.mark}%`,
-                                    backgroundColor: module.mark >= 40 ? '#287448' : '#B03A3A'
-                                }}
-                            />
-                        </div>
+                                    <span style={{color: module.mark >= 40? '#287448' : '#B03A3A'}}>{module.result}</span>
+                            </div>
+                        ))}
+                    </>
+                )}
 
-                        <span>{module.result}</span>
-                    </div>
-                ))}
 
-                <div className='info'>
-                    <div>
-                        <p className='text-2'>AVERAGE GRADE</p>
-                        <p className='num'>69%</p>
-                    </div>
-                    <div>
-                        <p className='text-2'>MODULES PASSED</p>
-                        <p className='num'>5/6</p>
-                    </div>
-                </div>
 
             </div>
 

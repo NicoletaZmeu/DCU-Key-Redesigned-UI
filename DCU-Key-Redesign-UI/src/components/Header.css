@@ -19,11 +19,6 @@ nav {
 
 }
 
-.start{
-    display: flex;
-    gap: 150px;
-    align-items: center;
-}
 
 .one{
     display: flex;
@@ -66,6 +61,12 @@ nav {
     gap: 15px;
 }
 
+.years select.selected-year {
+    background-color: #003B4D;
+    color: white;
+    border-color: #003B4D;
+}
+
 .years select {
     width: 170px;
     height: 50px;
@@ -76,6 +77,11 @@ nav {
     font-weight: 700;
     border-color: #e0e0e6;
 
+}
+
+.years select:focus option {
+    background-color: white;
+    color: #003B4D;
 }
 
 .bottom-nav{
@@ -101,6 +107,7 @@ nav {
     color: #00566B;
     border-bottom: 3px solid #00566B;
 }
+
 
 hr {
     background-color: #E5E7EB;

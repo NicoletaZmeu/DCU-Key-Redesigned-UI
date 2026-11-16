@@ -1,16 +1,23 @@
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import './Header.css'
 
 
-function Header(){
+function Header({selectedCourse, setSelectedCourse}){
 
     const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleSemesterChange = (event, year) => {
+        const semester = event.target.value;
+            if (semester) {
+                navigate(`/results/${year}/${semester}`);
+            }
+    };
 
     return(
         <>
         <nav className='top-nav'>
             
-            <div className='start'>
                 <div className='one'>
                     <div>
                         <Link to="/profile">
@@ -24,41 +31,43 @@ function Header(){
                     </div>
                 </div>
 
-                <div className='two'>
-                    <p className='title-one'>COURSE</p>
-                    <select className="course">
-                        <option value="">Select a course</option>
-                        <option value="DC121">BSc Computer Science</option>
-                    </select>
-                </div>
-            </div>
-
-            {location.pathname === '/results' && (
-                <div className='three'>
-                    <p className='title-one'>ACADEMIC YEAR</p>
-                    <div className='years'>
-                        <select name="Year" id="year">
-                            <option value="">Year 1</option>
-                            <option value="semester-one">Semester 1</option>
-                            <option value="semester-two">Semester 2</option>
-                        </select>
-                        <select name="" id="">
-                            <option value="">Year 2</option>
-                            <option value="semester-one">Semester 1</option>
-                            <option value="semester-two">Semester 2</option>
-                        </select>
-                        <select name="" id="">
-                            <option value="">Year 3</option>
-                            <option value="semester-one">Semester 1</option>
-                            <option value="semester-two">Semester 2</option>
-                        </select>
-                        <select name="" id="">
-                            <option value="">Year 4</option>
-                            <option value="semester-one">Semester 1</option>
-                            <option value="semester-two">Semester 2</option>
+            {location.pathname.startsWith('/results') && (
+                <>
+                    <div className='two'>
+                        <p className='title-one'>COURSE</p>
+                        <select 
+                            className="course"
+                            value={selectedCourse}
+                            onChange={(event) => setSelectedCourse(event.target.value)}
+                        >
+                            <option value="">Select a course</option>
+                            <option value="DC121">BSc Computer Science</option>
                         </select>
                     </div>
-                </div>
+
+                    <div className='three'>
+                        <p className='title-one'>ACADEMIC YEAR</p>
+                        <div className='years'>
+                            {[1, 2, 3, 4].map((year) => (
+                                <select 
+                                    key={year} 
+                                    className={
+                                        Number(location.pathname.split('/')[2]) === year
+                                            ? 'selected-year'
+                                            : ''
+                                    }
+                                    value="" 
+                                    onChange={(event) => handleSemesterChange(event, year)}
+                                
+                                >
+                                    <option value="" hidden>Year {year}</option>
+                                    <option value="1">Semester 1</option>
+                                    <option value="2">Semester 2</option>
+                                </select>
+                            ))}
+                        </div>
+                    </div>
+                </>
             )}
         </nav>
 
