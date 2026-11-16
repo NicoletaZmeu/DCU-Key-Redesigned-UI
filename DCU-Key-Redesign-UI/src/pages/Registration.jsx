@@ -27,6 +27,44 @@ const modules = [
     }
 ];
 
+const finalModules = [
+    {
+        id: 1,
+        name: "Computability & Complexity",
+        ects: 10,
+        semester: "1-2",
+        type: "Compulsory"
+    },
+    {
+        id: 2,
+        name: "Computer Networks 2",
+        ects: 10,
+        semester: 1,
+        type: "Compulsory"
+    },
+    {
+        id: 3,
+        name: "OO Analysis & Design",
+        ects: 10,
+        semester: 1,
+        type: "Compulsory"
+    },
+    {
+        id: 4,
+        name: "Prompt Engineering and LLM-Based Agents",
+        ects: 10,
+        semester: 1,
+        type: "Compulsory"
+    },
+    {
+        id: 5,
+        name: "User Interface Design & Implementation",
+        ects: 10,
+        semester: 1,
+        type: "Optional"
+    }
+];
+
 function Registration(){
     return(
         <>
@@ -46,8 +84,8 @@ function Registration(){
 
             <div className="optional">
 
-                <div className="semester-one">Semester 1 · Optional Modules</div>
-                <div className="semester-two">Semester 2 · Optional Modules</div>
+                <div className="semester-title">Semester 1 · Optional Modules</div>
+                {/* <div className="semester-two">Semester 2 · Optional Modules</div> */}
                 <p className='text'>Choose two optional modules.</p>
 
                 <div className='module-header'>
@@ -68,7 +106,37 @@ function Registration(){
             </div>
 
             <div className="final">
-                <h2>Final Selection</h2>
+                <h2 className='semester-title'>Final Selection</h2>
+                <div className='module-header-2'>
+                    <span>MODULE</span>
+                    <span>ECTS</span>
+                    <span>SEMESTER</span>
+                    <span>TYPE</span>
+                </div>
+
+                {finalModules.map((module) => (
+                    <div className="row-2" key={module.id}>
+                        <span>✓</span>
+                        <span>{module.name}</span>
+                        <span>{module.ects}</span>
+                        <span>
+                            {module.semester === "1-2"
+                                ? "Semesters 1–2"
+                                : `Semester ${module.semester}`}
+                        </span>
+                        <span>{module.type}</span>
+                    </div>
+                ))}
+
+                <div className='bottom'>
+                     <div className='credits'>
+                        <p>Total Credits:</p>
+                        <p>Total Modules:</p>
+                    </div>
+                    <button className='next'>Next</button>
+                </div>
+               
+
 
             </div>
         </>
