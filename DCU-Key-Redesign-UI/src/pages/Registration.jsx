@@ -84,7 +84,7 @@ function Registration(){
 
             <div className="optional">
 
-                <div className="semester-title">Semester 1 · Optional Modules</div>
+                <div className="secondary-title">Semester 1 · Optional Modules</div>
                 {/* <div className="semester-two">Semester 2 · Optional Modules</div> */}
                 <p className='text'>Choose two optional modules.</p>
 
