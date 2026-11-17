@@ -4,6 +4,7 @@ import Header from './components/Header.jsx';
 import Profile from './pages/Profile.jsx';
 import Results from './pages/Results.jsx';
 import Registration from './pages/Registration.jsx';
+// import './App.css'
 
 function App() {
     const [selectedCourse, setSelectedCourse] = useState("");
