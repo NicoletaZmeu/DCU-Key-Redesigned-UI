@@ -5,6 +5,7 @@ import { results } from '../Results.js';
 
 function Results({selectedCourse}){
 
+
     const {year, semester} = useParams();
 
     const selectedResults = results.find(
@@ -12,6 +13,19 @@ function Results({selectedCourse}){
             item.year === Number(year) &&
             item.semester === Number(semester)
     );
+
+    const modules = selectedResults?.modules || [];
+
+    const averageGrade = modules.length > 0
+        ? Math.round(
+            modules.reduce((total, module) => total + module.mark, 0) / modules.length
+        )
+        : 0;
+
+    const modulesPassed = modules.filter(
+        (module) => module.result === "Passed"
+    ).length;
+    
 
     return(
         <>
@@ -48,6 +62,17 @@ function Results({selectedCourse}){
                                     <span style={{color: module.mark >= 40? '#287448' : '#B03A3A'}}>{module.result}</span>
                             </div>
                         ))}
+
+                        <div className='info'>
+                            <div>
+                                <p className='text'>AVERAGE GRADE</p>
+                                <p className='grade'>{averageGrade}%</p>
+                            </div>
+                            <div>
+                                <p className='text'>MODULES PASSED</p>
+                                <p className='grade'>{modulesPassed} / {modules.length}</p>
+                            </div>
+                        </div>
                     </>
                 )}
 

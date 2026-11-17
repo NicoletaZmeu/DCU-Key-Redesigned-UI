@@ -18,8 +18,8 @@
     display: flex;
     gap: 60px;
     padding: 20px 20px 0px;
+    align-items: center;
 }
-
 
 .optional{
     background-color: white;
@@ -87,7 +87,7 @@
 
 .row-2{
     display: grid;
-    grid-template-columns: 50px 35% 10% 15% 1fr;
+    grid-template-columns:  50px calc(40% - 50px) 10% 20% 1fr;
     align-items: center;
     padding: 15px 20px;
     color: #003b4d;

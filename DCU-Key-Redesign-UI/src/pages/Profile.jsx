@@ -6,7 +6,9 @@ const student = {
         middleName: "James",
         lastName: "Murphy",
         dateOfBirth: "15/06/2004",
-        phoneNumber: "087 000 1234"
+        phoneNumber: "087 000 1234",
+        id: 'A000123',
+        email: 'alex.murphy2@mail.dcu.ie'
     },
 
     address: {
@@ -74,6 +76,14 @@ function Profile(){
                             <div className='detail-row'>
                                 <p>Phone Number:</p>
                                 <span>{student.personal.phoneNumber}</span>
+                            </div>
+                            <div className='detail-row'>
+                                <p>Student ID:</p>
+                                <span>{student.personal.id}</span>
+                            </div>
+                            <div className='detail-row'>
+                                <p>Email:</p>
+                                <span>{student.personal.email}</span>
                             </div>
                         </div>
                     </div>
