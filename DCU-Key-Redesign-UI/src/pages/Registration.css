@@ -2,6 +2,10 @@
     padding: 40px 60px;
 }
 
+.semester-title{
+    color: #003B4D;
+    font-size: 30px;
+}
 .title {
     color: #003B4D;
     font-size: 45px;
@@ -107,10 +111,13 @@
     padding: 15px 20px;
     color: #003b4d;
     font-size: 19px;
+    font-weight: 500;
     margin-top: 5px;
 
 }
-
+.x{
+    text-decoration: underline;
+}
 .row:has(input:checked) {
     background-color: #edf5ef;
     border-radius: 5px;
@@ -121,17 +128,19 @@
     grid-template-columns:  50px calc(40% - 50px) 10% 20% 1fr;
     align-items: center;
     padding: 15px 20px;
+    font-weight: 500;
     color: #003b4d;
     font-size: 19px;
 
 }
 
+
 .credits{
     display: flex;
     gap: 100px;
     color: #00566B;
-    font-size: 20px;
-    font-weight: 800;
+    font-size: 23px;
+    font-weight: 900;
     margin: 20px;
 }
 
@@ -150,6 +159,11 @@
     color: #6b7780;
 }
 
+.next:hover:not(:disabled){
+    background-color: #cce7c9;
+    color: #003B4D;
+}
+
 
 .review .final{
     margin-top: 0px;
@@ -160,3 +174,17 @@
 .end .text{
     font-size: 25px;
 }
+
+.progress-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.last-item{
+    color: #666;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+

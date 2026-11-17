@@ -52,6 +52,16 @@ function Registration(){
 
     const finalCredits = semester1Credits + semester2Credits;
 
+
+    const semester1Selected = selectedModules.filter((id) =>
+        year4Modules.find((module) => module.id === id)?.semester === 1
+    ).length;
+
+    const semester2Selected = selectedModules.filter((id) =>
+        year4Modules.find((module) => module.id === id)?.semester === 2
+    ).length;
+
+
     return(
         <>
             {(step === 1 || step === 2 || step === 3) && (
@@ -59,23 +69,27 @@ function Registration(){
                     <h1 className='title'>Choose your modules</h1>
                     <p className='text'>Choose your options, review your list, then continue to the next semester.</p>
 
+                    <div className='progress-container'>
+                        <ul className="progress">
+                            <li className={step === 1 ? 'active' : ''}>
+                                <span className='step-number'>1</span>
+                                Semester 1
+                            </li>
+
+                            <li className={step === 2 ? 'active' : ''}>
+                                <span className='step-number'>2</span>
+                                Semester 2
+                            </li>
+
+                            <li className={step === 3 ? 'active' : ''}>
+                                <span className='step-number'>3</span>
+                                Review & Submit
+                            </li>
+                        </ul>
+                        <span className='last-item'>Year 4 · {step === 1 ? "Semester 1" : step === 2 ? "Semester 2" : "Review"}</span>
+
+                    </div>
                     
-                    <ul className="progress">
-                        <li className={step === 1 ? 'active' : ''}>
-                            <span className='step-number'>1</span>
-                            Semester 1
-                        </li>
-
-                        <li className={step === 2 ? 'active' : ''}>
-                            <span className='step-number'>2</span>
-                            Semester 2
-                        </li>
-
-                        <li className={step === 3 ? 'active' : ''}>
-                            <span className='step-number'>3</span>
-                            Review & Submit
-                        </li>
-                    </ul>
                 </div>
             )}
             
@@ -106,7 +120,7 @@ function Registration(){
                                         checked={selectedModules.includes(module.id)}
                                         onChange={()=> handleCheckbox(module.id)}
                                     />
-                                    <span>{module.name}</span>
+                                    <span className='x'>{module.name}</span>
                                     <span>{module.ects}</span>
                                     <span>Semester {module.semester}</span>
                                 </div>
@@ -127,8 +141,8 @@ function Registration(){
                             .filter((module) => module.type === "Compulsory" && (module.semester === 1 || module.semester === '1-2'))
                             .map((module) => (
                                 <div className="row-2" key={module.id}>
-                                    <span>✓</span>
-                                    <span>{module.name}</span>
+                                    <span >✓</span>
+                                    <span className='x'>{module.name}</span>
                                     <span>{module.ects}</span>
                                     <span>Semester {module.semester}</span>
                                     <span>{module.type}</span>
@@ -140,7 +154,12 @@ function Registration(){
                                 <p>Total Credits: {semester1Credits}/60</p>
                                 <p>Total Modules: {semester1Modules.length}/6</p>
                             </div>
-                            <button className='next' onClick={() => setStep(2)}>Next</button>
+                            <button 
+                            className='next' 
+                            disabled={semester1Selected !== 1}
+                            onClick={() => setStep(2)}
+                            >
+                                Next</button>
                         </div>
                     </div>
                 </div>
@@ -174,7 +193,7 @@ function Registration(){
                                         checked={selectedModules.includes(module.id)}
                                         onChange={()=> handleCheckbox(module.id)}
                                     />
-                                    <span>{module.name}</span>
+                                    <span className='x'>{module.name}</span>
                                     <span>{module.ects}</span>
                                     <span>Semester {module.semester}</span>
                                 </div>
@@ -196,7 +215,7 @@ function Registration(){
                             .map((module) => (
                                 <div className="row-2" key={module.id}>
                                     <span>✓</span>
-                                    <span>{module.name}</span>
+                                    <span className='x'>{module.name}</span>
                                     <span>{module.ects}</span>
                                     <span>Semester {module.semester}</span>
                                     <span>{module.type}</span>
@@ -208,7 +227,12 @@ function Registration(){
                                 <p>Total Credits: {semester2Credits}/40</p>
                                 <p>Total Modules: {semester2Modules.length}/5</p>
                             </div>
-                            <button className='next' onClick={() => setStep(3)}>Next</button>
+                            <button 
+                                className='next' 
+                                onClick={() => setStep(3)}
+                                disabled={semester2Selected !== 2}
+                                >
+                                    Next</button>
                         </div>
                     </div>     
                 </div>
