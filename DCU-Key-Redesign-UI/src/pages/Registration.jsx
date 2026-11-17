@@ -258,6 +258,7 @@ function Registration(){
                     <div className='end'>
                         <div className='top'>
                             <p className='title'>Thank you, your modules have been registered!</p>
+                            <p className='text'>A confirmation email will be sent to your student email.</p>
                         </div>
                     </div>                 
                 </>
