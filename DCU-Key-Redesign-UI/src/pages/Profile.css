@@ -10,15 +10,18 @@
 
 }
 
-.information{
+.information {
     display: flex;
-    gap: 210px;
+    flex: 1;
+    min-width: 0;
+    justify-content: space-around;
+    gap: 30px;
     flex-wrap: wrap;
 }
 
 .information .text{
     font-weight: 600;
-    font-size: 22px;
+    font-size: 27px;
 }
 
 .picture{
@@ -26,9 +29,37 @@
     border-radius: 10px;
 }
 
-.filling p{
-    padding: 10px 0px;
+.detail-row{
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    gap: 10px;
+    font-size: 20px;
     color: #003b4d;
-    font-weight: 500;
+    font-weight: 400;
 
+}
+
+.detail-row p{
+    font-weight: 800;
+}
+
+.filling{
+    margin-bottom: 30px;
+}
+
+.filling h3{
+    color: #003b4d;
+    font-size: 21px;
+    text-align: end;
+}
+
+.start{
+    display: grid;
+}
+
+.start .next{
+    width: auto;
+    margin: 10px;
+    height: 50px;
 }
