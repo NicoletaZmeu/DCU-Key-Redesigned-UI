@@ -58,28 +58,28 @@ export const year4Modules = [
     {
         id: 9,
         name: "Machine Learning",
-        ects: 10,
+        ects: 5,
         semester: 2,
         type: "Optional"
     },
     {
         id: 10,
         name: "Data Analytics",
-        ects: 10,
+        ects: 5,
         semester: 2,
         type: "Optional"
     },
     {
         id: 11,
         name: "Blockchain Technologies",
-        ects: 10,
+        ects: 5,
         semester: 2,
         type: "Optional"
     },
     {
         id: 12,
         name: "Internet of Things",
-        ects: 10,
+        ects: 5,
         semester: 2,
         type: "Optional"
     },

@@ -16,9 +16,29 @@
 
 .progress{
     display: flex;
-    gap: 60px;
-    padding: 20px 20px 0px;
+    gap: 40px;
+    padding: 20px 0px 0px;
     align-items: center;
+    list-style: none;
+}
+
+.progress li{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    color: #909090;
+    font-weight: 500;
+    font-size: 19px;
+}
+
+.step-number{
+    background-color: #E5E9ED;
+    display: flex;
+    border-radius: 15px;
+    padding: 10px 3px 10px 15px;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .optional{
