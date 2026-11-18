@@ -105,7 +105,11 @@ function Registration(){
                 <div className='semester-one'>
                     <div className="optional">
 
-                        <div className="secondary-title">Semester 1 · Optional Modules</div>
+                        <div className='cont'>
+                            <div className="secondary-title">Semester 1 · Optional Modules</div>
+                            <span>{semester1Selected}/1</span>
+                        </div>
+
                         <p className='text'>Choose one optional module.</p>
 
                         <div className='module-header'>
@@ -143,9 +147,7 @@ function Registration(){
                             <span>TYPE</span>
                         </div>
 
-                        {year4Modules
-                            .filter((module) => module.type === "Compulsory" && (module.semester === 1 || module.semester === '1-2'))
-                            .map((module) => (
+                        {semester1Modules.map((module) => (
                                 <div className="row-2" key={module.id}>
                                     <span >✓</span>
                                     <span className='x'>{module.name}</span>
@@ -178,7 +180,10 @@ function Registration(){
             {step == 2 && (
                 <div className='semester-two'>
                     <div className="optional">
-                        <div className="secondary-title">Semester 2 · Optional Modules</div>
+                        <div className='cont'>
+                            <div className="secondary-title">Semester 2 · Optional Modules</div>
+                            <span>{semester2Selected}/2</span>
+                        </div>
                         <p className='text'>Choose two optional modules.</p>
 
                         <div className='module-header'>
@@ -216,9 +221,7 @@ function Registration(){
                             <span>TYPE</span>
                         </div>
 
-                        {year4Modules
-                            .filter((module) => module.type === "Compulsory" && (module.semester === 2 || module.semester === '1-2'))
-                            .map((module) => (
+                        {semester2Modules.map((module) => (
                                 <div className="row-2" key={module.id}>
                                     <span>✓</span>
                                     <span className='x'>{module.name}</span>
