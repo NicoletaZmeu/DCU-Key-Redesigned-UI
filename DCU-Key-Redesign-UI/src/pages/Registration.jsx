@@ -61,6 +61,12 @@ function Registration(){
         year4Modules.find((module) => module.id === id)?.semester === 2
     ).length;
 
+    const handleStepClick = (targetStep) => {
+        if (targetStep < step) {
+            setStep(targetStep);
+        }
+    };
+
 
     return(
         <>
@@ -71,17 +77,17 @@ function Registration(){
 
                     <div className='progress-container'>
                         <ul className="progress">
-                            <li className={step === 1 ? 'active' : ''}>
+                            <li  className={`${step === 1 ? 'active' : ''} ${step > 1 ? 'clickable' : ''}`} onClick={() => handleStepClick(1)}>
                                 <span className='step-number'>1</span>
                                 Semester 1
                             </li>
 
-                            <li className={step === 2 ? 'active' : ''}>
+                            <li  className={`${step === 2 ? 'active' : ''} ${step > 2 ? 'clickable' : ''}`} onClick={() => handleStepClick(2)}>
                                 <span className='step-number'>2</span>
                                 Semester 2
                             </li>
 
-                            <li className={step === 3 ? 'active' : ''}>
+                            <li  className={`${step === 3 ? 'active' : ''} ${step > 3 ? 'clickable' : ''}`} onClick={() => handleStepClick(2)}>
                                 <span className='step-number'>3</span>
                                 Review & Submit
                             </li>
