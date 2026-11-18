@@ -188,3 +188,10 @@
 }
 
 
+.progress li.clickable {
+    cursor: pointer;
+}
+
+.progress li.clickable:hover {
+    color: #287448;
+}
