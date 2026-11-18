@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx'
 import Profile from './pages/Profile.jsx';
@@ -18,6 +18,7 @@ function App() {
             />
             <main className='content'>
                 <Routes>
+                    <Route path="/" element={<Navigate to="/profile" replace />} />
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/registration" element={<Registration />} />
                     <Route path="/results" element={<Results selectedCourse={selectedCourse} />} />
