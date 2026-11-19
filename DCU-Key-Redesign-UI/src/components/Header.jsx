@@ -32,7 +32,7 @@ function Header({selectedCourse, setSelectedCourse}){
                 </div>
 
             {location.pathname.startsWith('/results') && (
-                <>
+                <div className='whole'>
                     <div className='two'>
                         <p className='title-one'>COURSE</p>
                         <select 
@@ -67,7 +67,7 @@ function Header({selectedCourse, setSelectedCourse}){
                             ))}
                         </div>
                     </div>
-                </>
+                </div>
             )}
         </nav>
 
